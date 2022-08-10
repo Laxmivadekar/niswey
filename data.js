@@ -3,8 +3,26 @@ const fs=require("fs")
 const express = require("express")
 const route = express.Router();
 
+/**
+ * @swagger
+ * /salary:
+ *  get:
+ *      summary: get all the data from the csv file
+ *      description: get all salary data
+ *      tags: [menu]
+ *      responses:
+ *          200:
+ *              description: Success
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          $ref: '#/components/schemas/SuccessResponse'
+ *          default:
+ *              description: Default response for this api
+ */
+
+
 var results=[]
-const t=[]
 route.get("/salary",(req,res) => {
     try{
         fs.createReadStream('salary_data.csv')
